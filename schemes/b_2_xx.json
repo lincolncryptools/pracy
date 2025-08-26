@@ -1,0 +1,39 @@
+{
+    "meta": {},
+    "spec": {
+        "master_key_vars": [
+            "alpha_{l}_[l:AUTHS]"
+        ],
+        "common_vars": [
+            "b_{l}_[l:AUTHS]",
+            "b'_{l}_[l:AUTHS]",
+            "b_{l, lab, 0}_[l:AUTHS, lab:LABELS]",
+            "b_{l, lab, 1}_[l:AUTHS, lab:LABELS]"
+        ],
+        "key_polys": [
+            "(k_{1, l} : H = alpha_{l} + <rgid>*b_{l} + r_{l}*b'_{l})_[l:attr_to_auth(USER_ATTRS)]",
+            "(k_{2, att.lbl, att} : H = r_{att.auth}*b_{att.auth, att.lbl, 0} + <xattr>_{att}*r_{att.auth}*b_{att.auth, att.lbl, 1})_[att:USER_ATTRS]"
+        ],
+        "cipher_polys": [
+            "cm : Gt = <secret>",
+            "(c_{1, j} : G = <mu>_{j} + s_{j}*b_{j.auth})_[j:LSSS_ROWS]",
+            "(c_{2, j, 0} : G = s_{j}*b'_{j.auth} + s'_{j.dedup}*b_{j.auth, j.lbl, 0} + s'_{j.dedup}*<xattr>_{j.attr}*b_{j.auth, j.lbl, 1})_[j:POS_LSSS_ROWS]",
+            "(c_{2, j, 1} : G = s_{j}*b'_{j.auth} + s'_{j.dedup}*b_{j.auth, j.lbl, 1})_[j:NEG_LSSS_ROWS]",
+            "(c_{3, j} : G = s'_{j.dedup}*b_{j.auth, j.lbl, 0} + s'_{j.dedup}*<xattr>_{j.attr}*b_{j.auth, j.lbl, 1})_[j:NEG_LSSS_ROWS]",
+            "(c'_{j} : Gt = <lambda>_{j} + alpha_{j.auth}*s_{j})_[j:LSSS_ROWS]"
+        ],
+        "e_vec": [
+            "(c'_{j} = <epsilon>_{j})_[j:LIN_COMB]"
+        ],
+        "e_mat": [
+            "(s_{j} ~ k_{1, j.auth} = -<epsilon>_{j})_[j:LIN_COMB]",
+            "(s'_{j.dedup} ~ k_{2, j.lbl, j.attr} = -<epsilon>_{j})_[j:POS_LIN_COMB]",
+            "(s'_{j.dedup} ~ k_{2, j.lbl, j.alt_attr} = -<epsilon>_{j} / (<xattralt>_{j} - <xattr>_{j.attr}))_[j:NEG_LIN_COMB]",
+            "(c_{1, j} ~ <rgid> = <epsilon>_{j})_[j:LIN_COMB]",
+            "(c_{2, j, 0} ~ r_{j.auth} = <epsilon>_{j})_[j:POS_LIN_COMB]",
+            "(c_{2, j, 1} ~ r_{j.auth} = <epsilon>_{j})_[j:NEG_LIN_COMB]",
+            "(c_{3, j} ~ r_{j.auth} = <epsilon>_{j} / (<xattralt>_{j} - <xattr>_{j.attr}))_[j:NEG_LIN_COMB]"
+        ],
+        "fdh_map": []
+    }
+}

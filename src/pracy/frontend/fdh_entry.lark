@@ -1,0 +1,14 @@
+fdh: var "#" fdh_idx
+
+fdh_idx: INT
+
+var: base__ident [base__idcs] [base__quants]
+
+%import .base.idcs -> base__idcs
+%import .base.quants -> base__quants
+%import .base.ident -> base__ident
+
+%import common.INT -> INT
+
+%import common.WS_INLINE
+%ignore WS_INLINE

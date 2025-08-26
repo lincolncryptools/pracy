@@ -1,0 +1,27 @@
+{
+  "meta": {},
+  "spec": {
+    "master_key_vars": [
+      "alpha"
+    ],
+    "common_vars": [
+      "b",
+      "b_{x}_[x:ATTR_UNI]"
+    ],
+    "key_polys": [
+      "k_{0, 0} : G = alpha + r*b",
+      "(k_{x} : G = r*b_{x})_[x:USER_ATTRS]"
+    ],
+    "cipher_polys": [
+      "cm : Gt = <secret>*alpha",
+      "(c_{j} : H = b*<lambda>_{j} + s_{j}*b_{j.attr})_[j:LSSS_ROWS]"
+    ],
+    "e_vec": [],
+    "e_mat": [
+      "(k_{0, 0} ~ <secret> = 1)",
+      "(k_{j.attr} ~ s_{j} = <epsilon>_{j})_[j:LIN_COMB]",
+      "(r ~ c_{j} = -<epsilon>_{j})_[j:LIN_COMB]"
+    ],
+    "fdh_map": []
+  }
+}

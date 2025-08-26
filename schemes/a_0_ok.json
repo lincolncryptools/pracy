@@ -1,0 +1,35 @@
+{
+  "meta": {},
+  "spec": {
+    "master_key_vars": [
+      "alpha_{l}_[l:AUTHS]"
+    ],
+    "common_vars": [
+      "b_{l}_[l:AUTHS]",
+      "b'_{l}_[l:AUTHS]",
+      "b_{1, att}_[att:ATTR_UNI]"
+    ],
+    "key_polys": [
+      "(k_{1, l} : G = alpha_{l} + <rgid>*b_{l} + r_{l}*b'_{l})_[l:attr_to_auth(USER_ATTRS)]",
+      "(k_{2, att} : G = r_{att.auth}*b_{1, att})_[att:USER_ATTRS]"
+    ],
+    "cipher_polys": [
+      "cm : Gt = <secret>",
+      "(c_{1, j} : H = <mu>_{j} + s_{1, j}*b_{j.auth})_[j:LSSS_ROWS]",
+      "(c_{2, j} : G = s_{1, j}*b'_{j.auth} + s_{2, j.dedup}*b_{1, j.attr})_[j:LSSS_ROWS]",
+      "(c'_{j} : Gt = <lambda>_{j} + alpha_{j.auth}*s_{1, j})_[j:LSSS_ROWS]"
+    ],
+    "e_vec": [
+      "(c'_{j} = <epsilon>_{j})_[j:LIN_COMB]"
+    ],
+    "e_mat": [
+      "(s_{2, j.dedup} ~ k_{2, j.attr} = -<epsilon>_{j})_[j:LIN_COMB]",
+      "(s_{1, j} ~ k_{1, j.auth} = -<epsilon>_{j})_[j:LIN_COMB]",
+      "(c_{1, j} ~ <rgid> = <epsilon>_{j})_[j:LIN_COMB]",
+      "(c_{2, j} ~ r_{j.auth} = <epsilon>_{j})_[j:LIN_COMB]"
+    ],
+    "fdh_map": [
+      "b_{1, a}_[a:ATTR_UNI] # 1"
+    ]
+  }
+}

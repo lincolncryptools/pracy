@@ -1,0 +1,9 @@
+entry: "(" base__ident [base__idcs] "=" base__expr ")" [base__quants]
+
+%import .base.idcs -> base__idcs
+%import .base.quants -> base__quants
+%import .base.ident -> base__ident
+%import .base.expr -> base__expr
+
+%import common.WS_INLINE
+%ignore WS_INLINE

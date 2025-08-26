@@ -1,0 +1,43 @@
+quants: "_" "[" quant ("," quant)* "]"
+quant: ident ":" (plain_quant | mapped_quant)
+plain_quant: qset
+mapped_quant: qmap "(" qset ")"
+
+idcs: "_" "{" idx ("," idx)* "}"
+?idx: plain_idx | mapped_idx
+plain_idx: ident | num_idx
+num_idx: INT
+mapped_idx: ident "." imap
+
+!ident: normal_ident | special_ident
+!normal_ident: LETTER+ "'"*
+!special_ident: "<" LETTER+ ">"
+
+!qset: /[A-Z]+(_[A-Z]+)*/
+
+!qmap: /[a-z]+(_[a-z]+)*/
+
+!imap: /[a-z]+(_[a-z]+)*/
+
+?expr: sum
+
+?sum: product
+    | sum "+" product -> add
+    | sum "-" product -> sub
+
+?product: atom
+        | product "*" atom -> mul
+        | product "/" atom -> div
+
+?atom: INT -> num
+     | "-" atom -> neg
+     | "(" expr ")"
+     | symbol
+
+symbol: ident [idcs]
+      | special_symbol [idcs]
+
+!special_symbol: "<" ident ">"
+
+%import common.LETTER -> LETTER
+%import common.INT -> INT

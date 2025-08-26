@@ -1,0 +1,32 @@
+# BEGIN SETUP
+idx = ""
+idx += "alpha"
+idx += "_{"
+idx += "}"
+MSK['alpha'][idx] = self.sample_z()
+MPK['alpha'][idx] = self.lift_gt(MSK['alpha'][idx])
+idx = ""
+idx += "b"
+idx += "_{"
+idx += "l"
+idx += "}"
+MSK['b'][idx] = self.sample_z()
+MPK['b_h'][idx] = self.lift_h(MSK['b'][idx])
+idx = ""
+idx += "b'"
+idx += "_{"
+idx += "l"
+idx += "}"
+MSK['b'][idx] = self.sample_z()
+MPK['b_h'][idx] = self.lift_h(MSK['b'][idx])
+for att in ATTRIBUTE_UNIVERSE:
+    idx = ""
+    idx += "b"
+    idx += "_{"
+    idx += "1"
+    idx += ","
+    idx += self.string_of_attribute(att)
+    idx += "}"
+    MSK['b'][idx] = self.sample_z()
+    MPK['b_h'][idx] = self.lift_h(MSK['b'][idx])
+# END SETUP

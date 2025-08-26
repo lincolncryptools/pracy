@@ -1,0 +1,16 @@
+?poly: "(" var ":" group "=" base__expr ")" base__quants
+        | var ":" group "=" base__expr
+
+var: base__ident [base__idcs]
+
+!group: "G"
+        | "H"
+        | "Gt"
+
+%import .base.idcs -> base__idcs
+%import .base.quants -> base__quants
+%import .base.ident -> base__ident
+%import .base.expr -> base__expr
+
+%import common.WS_INLINE
+%ignore WS_INLINE

@@ -1,0 +1,18 @@
+[
+    {
+        "policy": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "expected_tau": [0, 0, 0]
+    },
+    {
+        "policy": "(1.odd:ONE) OR (2.even:ONE) AND (3.odd:ONE)",
+        "expected_tau": [0, 1, 2]
+    },
+    {
+        "policy": "(1.odd:ONE) OR (2.even:TWO) AND (3.odd:ONE)",
+        "expected_tau": [0, 0, 1]
+    },
+    {
+        "policy": "((1.odd:ONE) OR (2.even:ONE)) AND (3.odd:ONE) AND (3.odd:ONE)",
+        "expected_tau": [0, 1, 2, 3]
+    }
+]

@@ -1,0 +1,30 @@
+{
+  "abe-type": "CP-ABE",
+  "attribute-universe": "small",
+  "needs_authority": true,
+  "needs_label": false,
+  "operators": ["AND", "OR"],
+  "dividors": [".", ":"],
+  "tau": "value",
+  "tau_tilde": "auth.lab",
+  "character_universe": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#-_",
+  "types": {
+    "singleton": {
+      "syntax": "value",
+      "handler": "Attribute(auth=None, label=None, value=item[0])"
+    },
+    "auth-tup": {
+      "syntax": "auth.value",
+      "handler": "Attribute(auth=item[0], label=None, value=item[2])"
+    },
+    "lab-tup": {
+      "syntax": "lab:value",
+      "handler": "Attribute(auth=None, label=item[0], value=item[2])"
+    },
+    "triple": {
+      "syntax": "auth.label:value",
+      "handler": "Attribute(auth=item[0], label=item[2], value=item[4])"
+    }
+  }
+}
+

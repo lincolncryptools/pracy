@@ -1,0 +1,51 @@
+{
+    "singleton": {
+        "input_policy": "ONE or TWO",
+        "expected_policy_triple": "",
+        "expected_policy_auth_tuple": "",
+        "expected_policy_lab_tuple": "",
+        "expected_policy_singleton": "ONE or TWO",
+        "input_attributes": ["ONE", "TWO"],
+        "expected_attributes_triple": [],
+        "expected_attributes_auth_tuple": [],
+        "expected_attributes_lab_tuple": [],
+        "expected_attributes_singleton": ["ONE", "TWO"]
+    },
+    "auth_tuple": {
+        "input_policy": "(1.ONE) OR (2.TWO)",
+        "expected_policy_triple": "",
+        "expected_policy_auth_tuple": "(1.ONE) OR (2.TWO)",
+        "expected_policy_lab_tuple": "",
+        "expected_policy_singleton": "(ONE) OR (TWO)",
+        "input_attributes": ["1.ONE", "2.TWO"],
+        "expected_attributes_triple": [],
+        "expected_attributes_auth_tuple": ["1.ONE", "2.TWO"],
+        "expected_attributes_lab_tuple": [],
+        "expected_attributes_singleton": ["ONE", "TWO"]
+    },
+    "lab_tuple": {
+        "input_policy": "(odd:ONE) OR (even:TWO)",
+        "expected_policy_triple": "",
+        "expected_policy_auth_tuple": "",
+        "expected_policy_lab_tuple": "(odd:ONE) OR (even:TWO)",
+        "expected_policy_singleton": "(ONE) OR (TWO)",
+        "input_attributes": ["odd:ONE", "even:TWO"],
+        "expected_attributes_triple": [],
+        "expected_attributes_auth_tuple": [],
+        "expected_attributes_lab_tuple": ["odd:ONE", "even:TWO"],
+        "expected_attributes_singleton": ["ONE", "TWO"]
+    },
+    "triple": {
+        "input_policy": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "expected_policy_triple": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "expected_policy_auth_tuple": "(1.ONE) AND (2.TWO) AND (3.THREE)",
+        "expected_policy_lab_tuple": "(odd:ONE) AND (even:TWO) AND (odd:THREE)",
+        "expected_policy_singleton": "(ONE) AND (TWO) AND (THREE)",
+        "input_attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "expected_attributes_triple": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "expected_attributes_auth_tuple": ["1.ONE", "2.TWO", "3.THREE", "2.FOUR"],
+        "expected_attributes_lab_tuple": ["odd:ONE", "even:TWO", "odd:THREE", "even:FOUR"],
+        "expected_attributes_singleton": ["ONE", "TWO", "THREE", "FOUR"]
+    }
+
+}

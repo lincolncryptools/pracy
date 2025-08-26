@@ -1,0 +1,155 @@
+{
+    "COMPLEX": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(((1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)) AND ((1.odd:FOUR) OR (2.even:FIVE) OR (3.odd:SIX))) OR (((1.odd:SEVEN) OR (2.even:EIGHT) OR (3.odd:NINE)) AND ((1.odd:TEN) OR (2.even:ELEVEN) OR (3.odd:TWELVE)))",
+        "attributes": ["(1.odd:ONE)", "(2.even:ELEVEN)", "(3.odd:NINE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE"],
+        "authorities": ["1", "2", "3"],
+        "correct": true
+    },
+    "ATTR_EMPTY": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": [],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": false  
+    },
+    "POLICY_EMPTY": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": false  
+    },
+    "AUTHORITIES_EMPTY":{
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy":  "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": [],
+        "correct": false
+    },
+    "AUTHORITIES_NOTENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy":  "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2"],
+        "correct": false
+    },
+    "AUTHORITIES_ENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy":  "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true
+    },
+    "AND_ENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy":  "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true
+    },
+    "AND_EQUAL": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    }, 
+    "AND_NOTENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) AND (2.even:TWO) AND (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": false
+    },
+    "OR_ENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)", "(3.odd:THREE)", "(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "OR_EQUAL-LEFT": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "OR_EQUAL-MID": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)",
+        "attributes": ["(2.even:TWO)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "OR_EQUAL-RIGHT": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)",
+        "attributes": ["(3.odd:THREE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "OR_EQUAL-NOTENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR (2.even:TWO) OR (3.odd:THREE)",
+        "attributes": ["(2.even:FOUR)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": false  
+    },
+    "MIXED_EQUAL-LEFT": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "((1.odd:ONE) AND (2.even:TWO)) OR (3.odd:THREE)",
+        "attributes": ["(1.odd:ONE)", "(2.even:TWO)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "MIXED_EQUAL-RIGHT": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR ((2.even:TWO) AND (3.odd:THREE))",
+        "attributes": ["(2.even:TWO)", "(3.odd:THREE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": true  
+    },
+    "MIXED_EQUAL-NOTENOUGH": {
+        "user": "Alice",
+        "groupObj": "SS512",
+        "policy": "(1.odd:ONE) OR ((2.even:TWO) AND (3.odd:THREE))",
+        "attributes": ["(3.odd:THREE)"],
+        "attribute_universe": ["ONE", "TWO", "THREE", "FOUR"],
+        "authorities": ["1", "2", "3"],
+        "correct": false  
+    }
+}

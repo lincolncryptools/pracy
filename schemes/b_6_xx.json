@@ -1,0 +1,39 @@
+{
+    "meta": {},
+    "spec": {
+        "master_key_vars": [
+            "alpha"
+        ],
+        "common_vars": [
+            "b",
+            "b'",
+            "b_{lab, 0}_[lab:LABELS]",
+            "b_{lab, 1}_[lab:LABELS]"
+        ],
+        "key_polys": [
+            "k_{1} : G = alpha + <rgid>*b + r*b'",
+            "(k_{2, att.lbl, att} : G = r*b_{att.lbl, 0} + <xattr>_{att}*r*b_{att.lbl, 1})_[att:USER_ATTRS]"
+        ],
+        "cipher_polys": [
+            "cm : Gt = <secret>",
+            "(c_{1, j} : H = <mu>_{j} + s_{j}*b)_[j:LSSS_ROWS]",
+            "(c_{2, j, 0} : H = s_{j}*b' + s'_{j.dedup}*b_{j.lbl, 0} + s'_{j.dedup}*<xattr>_{j.attr}*b_{j.lbl, 1})_[j:POS_LSSS_ROWS]",
+            "(c_{2, j, 1} : H = s_{j}*b' + s'_{j.dedup}*b_{j.lbl, 1})_[j:NEG_LSSS_ROWS]",
+            "(c_{3, j} : H = s'_{j.dedup}*b_{j.lbl, 0} + s'_{j.dedup}*<xattr>_{j.attr}*b_{j.lbl, 1})_[j:NEG_LSSS_ROWS]",
+            "(c'_{j} : Gt = <lambda>_{j} + alpha*s_{j})_[j:LSSS_ROWS]"
+        ],
+        "e_vec": [
+            "(c'_{j} = <epsilon>_{j})_[j:LIN_COMB]"
+        ],
+        "e_mat": [
+            "(s_{j} ~ k_{1} = -<epsilon>_{j})_[j:LIN_COMB]",
+            "(s'_{j.dedup} ~ k_{2, j.lbl, j.attr} = -<epsilon>_{j})_[j:POS_LIN_COMB]",
+            "(s'_{j.dedup} ~ k_{2, j.lbl, j.alt_attr} = -<epsilon>_{j} / (<xattralt>_{j} - <xattr>_{j.attr}))_[j:NEG_LIN_COMB]",
+            "(c_{1, j} ~ <rgid> = <epsilon>_{j})_[j:LIN_COMB]",
+            "(c_{2, j, 0} ~ r = <epsilon>_{j})_[j:POS_LIN_COMB]",
+            "(c_{2, j, 1} ~ r = <epsilon>_{j})_[j:NEG_LIN_COMB]",
+            "(c_{3, j} ~ r = <epsilon>_{j} / (<xattralt>_{j} - <xattr>_{j.attr}))_[j:NEG_LIN_COMB]"
+        ],
+        "fdh_map": []
+    }
+}
